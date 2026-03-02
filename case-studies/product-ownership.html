@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Case Study — Product Ownership in Early-Stage Fintech | Ethien Salinas</title>
+    <meta name="description"
+        content="How a CTO operates as Product Owner in early-stage fintech: MVP definition, prioritization, workflows, and delivery." />
+    <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+
+<body>
+    <header class="container header">
+        <div class="badge">Case Study</div>
+        <h1>Product Ownership in Early-Stage Fintech</h1>
+        <p class="subtitle">MVP Definition · Prioritization · Workflows · Delivery Ownership</p>
+        <p class="lede">
+            In early-stage startups, “product” is often a responsibility before it becomes a role.
+            Here’s how I approach product ownership as a CTO while keeping engineering execution fast and sustainable.
+        </p>
+
+        <div class="cta">
+            <a class="btn" href="../index.html">← Back to Home</a>
+            <a class="btn primary" href="#framework">Jump to Framework</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Why this matters</h2>
+            <p>
+                In fintech, you don’t just build features — you build workflows that touch compliance, operations,
+                customer support, and risk. When the team is small, the CTO often becomes the bridge between
+                business needs and shippable product.
+            </p>
+            <p class="muted">
+                This case study describes how I run product definition in early stages without creating chaos in
+                engineering.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Typical constraints</h2>
+            <ul>
+                <li>Limited headcount: engineering must ship while defining the product.</li>
+                <li>High dependency on ops/compliance and external partners.</li>
+                <li>Ambiguity in requirements: “we need X” without a clear workflow definition.</li>
+                <li>Pressure to deliver MVP quickly without compromising trust and safety.</li>
+            </ul>
+        </section>
+
+        <section class="card" id="framework">
+            <h2>My Framework</h2>
+
+            <div class="item">
+                <div class="item-head">
+                    <h3>1) Start from user journeys, not features</h3>
+                    <span>Clarity</span>
+                </div>
+                <ul>
+                    <li>Define the “happy path” journey end-to-end (and the top failure paths).</li>
+                    <li>Write acceptance criteria in plain language: what must be true for “done”.</li>
+                    <li>Map operational steps and handoffs (support, ops, risk) early.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-head">
+                    <h3>2) Model the workflow as a state machine</h3>
+                    <span>Fintech discipline</span>
+                </div>
+                <ul>
+                    <li>Represent critical flows (onboarding, credit decisioning, payouts) as states + transitions.</li>
+                    <li>Make exceptions explicit (manual review, retries, timeouts, reversals).</li>
+                    <li>Use this model to align product, engineering, and operations quickly.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-head">
+                    <h3>3) Define the MVP as “minimum compliant product”</h3>
+                    <span>Trust</span>
+                </div>
+                <ul>
+                    <li>Ship the smallest set of workflows that can operate safely in production.</li>
+                    <li>Include auditability, logging, and support tooling from day one.</li>
+                    <li>Prefer a simple product with operational maturity over a broad product that breaks trust.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-head">
+                    <h3>4) Prioritize by impact × risk × effort</h3>
+                    <span>Decision quality</span>
+                </div>
+                <ul>
+                    <li><strong>Impact:</strong> does it move activation, conversion, retention, or unit economics?</li>
+                    <li><strong>Risk:</strong> does it reduce compliance/operational risk or increase it?</li>
+                    <li><strong>Effort:</strong> what’s the true cost including testing, ops, and maintenance?</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-head">
+                    <h3>5) Make product decisions measurable</h3>
+                    <span>Learning</span>
+                </div>
+                <ul>
+                    <li>Define success metrics before building (e.g., completion rate, time-to-approve, drop-off
+                        points).</li>
+                    <li>Instrument the funnel (events), track cohorts, and iterate weekly.</li>
+                    <li>Keep a tight feedback loop with customer support and operations.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-head">
+                    <h3>6) Keep engineering sustainable</h3>
+                    <span>Execution</span>
+                </div>
+                <ul>
+                    <li>Separate exploration from delivery: short discovery notes → clear backlog items.</li>
+                    <li>Use PRDs lightly: 1–2 pages max, with workflows, acceptance criteria, and edge cases.</li>
+                    <li>Maintain technical standards and avoid “MVP debt” that blocks the next phase.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>What this unlocks</h2>
+            <ul>
+                <li>Faster MVP delivery with fewer reworks.</li>
+                <li>Better alignment between business, ops, compliance, and engineering.</li>
+                <li>A product that can operate safely (supportable + auditable) as it scales.</li>
+                <li>Clearer signals for product-market fit with measurable experiments.</li>
+            </ul>
+        </section>
+
+        <section class="card" id="contact">
+            <h2>Let’s talk</h2>
+            <p>
+                If you want a CTO who can own product definition early while building a scalable engineering system,
+                let’s connect.<br />
+                Email: <a href="mailto:ethien.salinas@gmail.com">ethien.salinas@gmail.com</a> ·
+                LinkedIn: <a href="https://www.linkedin.com/in/ethiensalinas/" target="_blank"
+                    rel="noreferrer">/in/ethiensalinas</a>
+            </p>
+        </section>
+
+        <footer class="footer container">
+            <p class="muted">© <span id="year"></span> Ethien Salinas</p>
+        </footer>
+    </main>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

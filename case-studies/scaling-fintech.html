@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Case Study — Scaling a Regulated Fintech Platform | Ethien Salinas</title>
+    <meta name="description"
+        content="A practical case study on scaling a regulated fintech platform: architecture, governance, reliability, and team operating model." />
+    <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+
+<body>
+    <header class="container header">
+        <div class="badge">Case Study</div>
+        <h1>Scaling a Regulated Fintech Platform</h1>
+        <p class="subtitle">Architecture · Governance · Reliability · Delivery Operating Model</p>
+        <p class="lede">
+            A practical playbook of how I approach scaling fintech platforms under regulatory and operational
+            constraints —
+            focusing on predictable delivery, resilient systems, and organizational maturity.
+        </p>
+
+        <div class="cta">
+            <a class="btn" href="../index.html">← Back to Home</a>
+            <a class="btn primary" href="#playbook">Jump to Playbook</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Context</h2>
+            <p>
+                In regulated fintech environments, scaling is rarely just “more traffic”. It’s usually a combination of:
+                increased operational load, tighter compliance expectations, more stakeholders, higher availability
+                needs,
+                and a growing team shipping changes continuously.
+            </p>
+            <p class="muted">
+                This write-up is intentionally vendor-agnostic and focuses on patterns that work across most cloud
+                stacks.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Goals</h2>
+            <ul>
+                <li><strong>Reliability:</strong> improve stability and reduce incident impact (customer + operations).
+                </li>
+                <li><strong>Speed with control:</strong> ship faster without losing governance or traceability.</li>
+                <li><strong>Security & compliance by design:</strong> reduce risk through engineering standards.</li>
+                <li><strong>Scalable organization:</strong> distributed teams executing with clear ownership.</li>
+            </ul>
+        </section>
+
+        <section class="card" id="playbook">
+            <h2>The Playbook</h2>
+
+            <div class="item">
+                <div class="item-head">
+                    <h3>1) System boundaries & ownership</h3>
+                    <span>Foundation</span>
+                </div>
+                <ul>
+                    <li>Define clear domains (e.g., onboarding, accounts, payments, risk, reporting).</li>
+                    <li>Assign service ownership per domain (team owns build + run + roadmap).</li>
+                    <li>Establish API contracts and versioning rules to protect consumers.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-head">
+                    <h3>2) API-first architecture with disciplined integration</h3>
+                    <span>Scale factor</span>
+                </div>
+                <ul>
+                    <li>Standardize API design (errors, idempotency, pagination, auth patterns).</li>
+                    <li>Introduce integration patterns for third parties (webhooks, retries, circuit breakers).</li>
+                    <li>Prefer asynchronous workflows for non-critical paths to reduce coupling.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-head">
+                    <h3>3) Reliability baseline: SLOs, observability, incident response</h3>
+                    <span>Operational maturity</span>
+                </div>
+                <ul>
+                    <li>Define SLOs for critical user journeys (login, onboarding, card/payment actions, support flows).
+                    </li>
+                    <li>Implement consistent observability: logs, metrics, traces, alerting, dashboards.</li>
+                    <li>Run incident process: severity levels, comms templates, postmortems, action tracking.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-head">
+                    <h3>4) Security & compliance built into delivery</h3>
+                    <span>Risk control</span>
+                </div>
+                <ul>
+                    <li>Threat modeling for critical flows (auth, PII handling, payment authorization, admin tooling).
+                    </li>
+                    <li>Secrets management, least privilege access, audit logs on sensitive actions.</li>
+                    <li>Security gates: dependency scanning, SAST, IaC checks, pre-prod validations.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-head">
+                    <h3>5) Data and reporting as first-class citizens</h3>
+                    <span>Regulatory readiness</span>
+                </div>
+                <ul>
+                    <li>Define canonical events for key lifecycle steps (account created, KYC passed, transaction
+                        posted).</li>
+                    <li>Separate operational data needs (product) from compliance reporting needs (auditability).</li>
+                    <li>Document data lineage and retention policies (PII, logs, finance records).</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-head">
+                    <h3>6) Delivery system: standards, reviews, and release discipline</h3>
+                    <span>Speed + quality</span>
+                </div>
+                <ul>
+                    <li>Define “Definition of Done”: tests, observability hooks, runbooks, documentation updates.</li>
+                    <li>Use progressive delivery when possible (feature flags, canaries, staged rollouts).</li>
+                    <li>Measure lead time, change failure rate, MTTR to keep improvement objective.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-head">
+                    <h3>7) Org design: distributed teams with predictable execution</h3>
+                    <span>Human scalability</span>
+                </div>
+                <ul>
+                    <li>Clarify responsibilities: product, tech leads, QA/quality, platform/DevOps boundaries.</li>
+                    <li>Cadences: roadmap planning, weekly execution reviews, incident + risk reviews.</li>
+                    <li>Align incentives: teams own outcomes, not just output.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Results I aim for</h2>
+            <ul>
+                <li>Fewer high-severity incidents and faster recovery when issues happen.</li>
+                <li>Shorter release cycles with better traceability and lower regression risk.</li>
+                <li>Reduced dependency on specific individuals (systems and org are resilient).</li>
+                <li>A platform that becomes an asset: product velocity increases without proportional risk growth.</li>
+            </ul>
+        </section>
+
+        <section class="card" id="contact">
+            <h2>Let’s talk</h2>
+            <p>
+                If you are scaling a fintech product and need architecture + execution discipline, let’s connect.<br />
+                Email: <a href="mailto:ethien.salinas@gmail.com">ethien.salinas@gmail.com</a> ·
+                LinkedIn: <a href="https://www.linkedin.com/in/ethiensalinas/" target="_blank"
+                    rel="noreferrer">/in/ethiensalinas</a>
+            </p>
+        </section>
+
+        <footer class="footer container">
+            <p class="muted">© <span id="year"></span> Ethien Salinas</p>
+        </footer>
+    </main>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
