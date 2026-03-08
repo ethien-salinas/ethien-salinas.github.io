@@ -1,177 +1,696 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Case Study — Scaling a Regulated Fintech Platform | Ethien Salinas</title>
-    <meta name="description"
-        content="A practical case study on scaling a regulated fintech platform: architecture, governance, reliability, and team operating model." />
-    <link rel="stylesheet" href="../assets/styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building a Fintech Platform for Migrants in Europe | Ethien Salinas</title>
+  <meta name="description"
+    content="Case study by Ethien Salinas on building Íkualo from concept to operating fintech platform for migrants in Europe." />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #111827;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --success: #065f46;
+      --success-bg: #d1fae5;
+      --max-width: 900px;
+      --radius: 16px;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: #f8fafc;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      padding: 72px 24px 56px;
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #dbeafe;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.1;
+      margin: 0 0 16px;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      margin: 0 0 28px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .hero-meta span {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      color: #e2e8f0;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: -28px auto 64px;
+      padding: 0 24px;
+    }
+
+    .content {
+      background: var(--card);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 36px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .summary-card {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .summary-card .label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .summary-card .value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.55rem;
+      margin: 0 0 14px;
+      color: #0f172a;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 18px 0 8px;
+      color: #111827;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    ul {
+      margin: 0 0 16px 22px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .callout {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 14px;
+      padding: 18px 18px 16px;
+      margin: 20px 0;
+    }
+
+    .callout strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .info-card {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .info-card h3 {
+      margin-top: 0;
+    }
+
+    .architecture {
+      background: #0f172a;
+      color: #e5e7eb;
+      border-radius: 18px;
+      padding: 24px;
+      overflow-x: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-top: 18px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .timeline-item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      background: #fff;
+    }
+
+    .timeline-item .phase {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .quote {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      font-size: 1.05rem;
+      color: #111827;
+    }
+
+    .quote p {
+      margin: 0;
+    }
+
+    .quote footer {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .result-list li {
+      list-style: none;
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .result-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      font-weight: 600;
+    }
+
+    @media (max-width: 860px) {
+      .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 56px 20px 44px;
+      }
+
+      main {
+        padding: 0 16px;
+      }
+
+      .content {
+        padding: 24px 20px;
+      }
+
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h2 {
+        font-size: 1.35rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <header class="container header">
-        <div class="badge">Case Study</div>
-        <h1>Scaling a Regulated Fintech Platform</h1>
-        <p class="subtitle">Architecture · Governance · Reliability · Delivery Operating Model</p>
-        <p class="lede">
-            A practical playbook of how I approach scaling fintech platforms under regulatory and operational
-            constraints —
-            focusing on predictable delivery, resilient systems, and organizational maturity.
+  <header class="hero">
+    <div class="hero-inner">
+      <a class="back-link" href="../index.html">← Back to home</a>
+      <div class="eyebrow">Case Study</div>
+      <h1>Building a Fintech Platform for Migrants in Europe</h1>
+      <p class="subtitle">
+        How I helped take Íkualo from an early idea to an operating fintech platform,
+        building the technology function, evolving the product, and preparing the company for scale.
+      </p>
+      <div class="hero-meta">
+        <span>Role: CTO</span>
+        <span>Company: Íkualo</span>
+        <span>Focus: Fintech, product, platform, team building</span>
+        <span>Stage: Idea → Launch → Scale-up</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="content">
+      <section>
+        <div class="summary-grid">
+          <div class="summary-card">
+            <span class="label">Starting Point</span>
+            <div class="value">Idea stage</div>
+          </div>
+          <div class="summary-card">
+            <span class="label">Team Evolution</span>
+            <div class="value">5 people → multi-area company</div>
+          </div>
+          <div class="summary-card">
+            <span class="label">Technology Team</span>
+            <div class="value">1 technical role → 15 internal people</div>
+          </div>
+          <div class="summary-card">
+            <span class="label">Product Outcome</span>
+            <div class="value">Operating fintech with thousands of users</div>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Executive Summary</strong>
+          Íkualo started as a bold idea: to build a financial platform designed for Latin American migrants in
+          Europe.
+          I joined at the earliest stage, first helping define the technical path and evaluate providers, and
+          later building
+          the internal technology function, evolving the product beyond a white-label approach, and supporting
+          the company
+          through its transition into a scale-up stage.
+        </div>
+      </section>
+
+      <section>
+        <h2>Context</h2>
+        <p>
+          Íkualo was created with the vision of becoming a financial platform specifically designed for Latin
+          American
+          migrants living in Europe. The mission was not only to offer access to financial services, but to do
+          so in a
+          way that was practical, trustworthy, and compliant from day one.
+        </p>
+        <p>
+          I met Harold Correa, the founder and CEO, when the company was still at the idea stage. He had
+          already been
+          exploring the opportunity and was looking for someone with fintech experience who could help turn
+          the concept
+          into a real product and a viable technology platform.
+        </p>
+        <p>
+          At that point, the company was extremely lean: CEO, marketing, design, PR, and me as the only
+          technical figure.
+          My initial contribution combined advisory work, vendor evaluation, technical translation, and
+          execution planning.
+        </p>
+      </section>
+
+      <section>
+        <h2>The Challenge</h2>
+        <p>
+          The vision was compelling, but there was no clear product or technical roadmap yet. We needed to
+          define how to
+          build a compliant financial product in Europe, move quickly enough to validate the market, and avoid
+          getting boxed
+          in by short-term decisions.
+        </p>
+        <ul>
+          <li>There was no established product direction or implementation roadmap.</li>
+          <li>We needed to assess Banking-as-a-Service and KYC providers suitable for launch.</li>
+          <li>We had to balance speed to market with regulatory, security, and operational requirements.</li>
+          <li>The platform needed to be extensible enough to grow beyond a basic account product.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>My Role</h2>
+        <p>
+          I joined as CTO and initially worked in a very hands-on strategic role: evaluating providers,
+          translating their
+          capabilities into architecture and product implications, and helping shape the first realistic path
+          to market.
+        </p>
+        <ul>
+          <li>Evaluated Banking-as-a-Service and fintech infrastructure providers.</li>
+          <li>Created diagrams and technical explanations to support business decisions.</li>
+          <li>Coordinated delivery with external vendors during the first phase.</li>
+          <li>Built the internal engineering structure as the company evolved.</li>
+          <li>Worked closely on product definition, feature sequencing, and technical feasibility.</li>
+        </ul>
+        <p>
+          Over time, my role evolved from advisor and delivery driver into building and leading the internal
+          technology function.
+        </p>
+      </section>
+
+      <section>
+        <h2>Strategy</h2>
+        <p>
+          In the early stage, the right decision was to optimize for speed to market. The first version of the
+          product relied
+          on a white-label fintech setup, which made it possible to launch faster and start learning from the
+          market.
+        </p>
+        <p>
+          But that was never meant to be the final state. As soon as the business and product direction became
+          clearer, the
+          limitations of the initial provider model became evident: reduced flexibility, slower iteration, and
+          constraints on
+          product differentiation.
+        </p>
+        <p>
+          The strategy then shifted toward progressively building internal capabilities, reducing vendor
+          dependency, and creating
+          a more extensible platform that could support future products.
         </p>
 
-        <div class="cta">
-            <a class="btn" href="../index.html">← Back to Home</a>
-            <a class="btn primary" href="#playbook">Jump to Playbook</a>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="phase">Phase 1</div>
+            <h3>Launch quickly</h3>
+            <p>Use external fintech infrastructure and a white-label approach to reach the market and
+              validate the proposition.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="phase">Phase 2</div>
+            <h3>Gain control</h3>
+            <p>Build internal services and reduce dependency on vendor limitations that slowed product
+              evolution.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="phase">Phase 3</div>
+            <h3>Prepare for scale</h3>
+            <p>Strengthen architecture, team structure, and product capabilities to support new financial
+              services and growth.</p>
+          </div>
         </div>
-    </header>
+      </section>
 
-    <main class="container">
-        <section class="card">
-            <h2>Context</h2>
-            <p>
-                In regulated fintech environments, scaling is rarely just “more traffic”. It’s usually a combination of:
-                increased operational load, tighter compliance expectations, more stakeholders, higher availability
-                needs,
-                and a growing team shipping changes continuously.
-            </p>
-            <p class="muted">
-                This write-up is intentionally vendor-agnostic and focuses on patterns that work across most cloud
-                stacks.
-            </p>
-        </section>
+      <section>
+        <h2>Platform Architecture</h2>
+        <p>
+          The platform evolved toward a cloud-native microservices architecture designed for flexibility,
+          integration, and
+          long-term product growth.
+        </p>
 
-        <section class="card">
-            <h2>Goals</h2>
+        <div class="two-col">
+          <div class="info-card">
+            <h3>Core stack</h3>
             <ul>
-                <li><strong>Reliability:</strong> improve stability and reduce incident impact (customer + operations).
-                </li>
-                <li><strong>Speed with control:</strong> ship faster without losing governance or traceability.</li>
-                <li><strong>Security & compliance by design:</strong> reduce risk through engineering standards.</li>
-                <li><strong>Scalable organization:</strong> distributed teams executing with clear ownership.</li>
+              <li>AWS cloud infrastructure</li>
+              <li>Node.js / NestJS backend</li>
+              <li>Microservices architecture</li>
+              <li>React Native mobile app</li>
+              <li>Docker and Kubernetes for containerization and orchestration</li>
             </ul>
-        </section>
+          </div>
 
-        <section class="card" id="playbook">
-            <h2>The Playbook</h2>
-
-            <div class="item">
-                <div class="item-head">
-                    <h3>1) System boundaries & ownership</h3>
-                    <span>Foundation</span>
-                </div>
-                <ul>
-                    <li>Define clear domains (e.g., onboarding, accounts, payments, risk, reporting).</li>
-                    <li>Assign service ownership per domain (team owns build + run + roadmap).</li>
-                    <li>Establish API contracts and versioning rules to protect consumers.</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <div class="item-head">
-                    <h3>2) API-first architecture with disciplined integration</h3>
-                    <span>Scale factor</span>
-                </div>
-                <ul>
-                    <li>Standardize API design (errors, idempotency, pagination, auth patterns).</li>
-                    <li>Introduce integration patterns for third parties (webhooks, retries, circuit breakers).</li>
-                    <li>Prefer asynchronous workflows for non-critical paths to reduce coupling.</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <div class="item-head">
-                    <h3>3) Reliability baseline: SLOs, observability, incident response</h3>
-                    <span>Operational maturity</span>
-                </div>
-                <ul>
-                    <li>Define SLOs for critical user journeys (login, onboarding, card/payment actions, support flows).
-                    </li>
-                    <li>Implement consistent observability: logs, metrics, traces, alerting, dashboards.</li>
-                    <li>Run incident process: severity levels, comms templates, postmortems, action tracking.</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <div class="item-head">
-                    <h3>4) Security & compliance built into delivery</h3>
-                    <span>Risk control</span>
-                </div>
-                <ul>
-                    <li>Threat modeling for critical flows (auth, PII handling, payment authorization, admin tooling).
-                    </li>
-                    <li>Secrets management, least privilege access, audit logs on sensitive actions.</li>
-                    <li>Security gates: dependency scanning, SAST, IaC checks, pre-prod validations.</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <div class="item-head">
-                    <h3>5) Data and reporting as first-class citizens</h3>
-                    <span>Regulatory readiness</span>
-                </div>
-                <ul>
-                    <li>Define canonical events for key lifecycle steps (account created, KYC passed, transaction
-                        posted).</li>
-                    <li>Separate operational data needs (product) from compliance reporting needs (auditability).</li>
-                    <li>Document data lineage and retention policies (PII, logs, finance records).</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <div class="item-head">
-                    <h3>6) Delivery system: standards, reviews, and release discipline</h3>
-                    <span>Speed + quality</span>
-                </div>
-                <ul>
-                    <li>Define “Definition of Done”: tests, observability hooks, runbooks, documentation updates.</li>
-                    <li>Use progressive delivery when possible (feature flags, canaries, staged rollouts).</li>
-                    <li>Measure lead time, change failure rate, MTTR to keep improvement objective.</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <div class="item-head">
-                    <h3>7) Org design: distributed teams with predictable execution</h3>
-                    <span>Human scalability</span>
-                </div>
-                <ul>
-                    <li>Clarify responsibilities: product, tech leads, QA/quality, platform/DevOps boundaries.</li>
-                    <li>Cadences: roadmap planning, weekly execution reviews, incident + risk reviews.</li>
-                    <li>Align incentives: teams own outcomes, not just output.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="card">
-            <h2>Results I aim for</h2>
+          <div class="info-card">
+            <h3>Key integrations</h3>
             <ul>
-                <li>Fewer high-severity incidents and faster recovery when issues happen.</li>
-                <li>Shorter release cycles with better traceability and lower regression risk.</li>
-                <li>Reduced dependency on specific individuals (systems and org are resilient).</li>
-                <li>A platform that becomes an asset: product velocity increases without proportional risk growth.</li>
+              <li>Banking-as-a-Service provider</li>
+              <li>KYC provider</li>
+              <li>SMS, email, WhatsApp, and push notifications</li>
+              <li>Google Wallet</li>
+              <li>Apple Wallet</li>
             </ul>
-        </section>
+          </div>
+        </div>
 
-        <section class="card" id="contact">
-            <h2>Let’s talk</h2>
-            <p>
-                If you are scaling a fintech product and need architecture + execution discipline, let’s connect.<br />
-                Email: <a href="mailto:ethien.salinas@gmail.com">ethien.salinas@gmail.com</a> ·
-                LinkedIn: <a href="https://www.linkedin.com/in/ethiensalinas/" target="_blank"
-                    rel="noreferrer">/in/ethiensalinas</a>
-            </p>
-        </section>
+        <div class="architecture">
+          Users
+          |
+          v
+          React Native Mobile App
+          |
+          v
+          API / Backend Services (Node.js / NestJS)
+          |
+          +--> Onboarding & KYC Services
+          +--> Account & Card Flows
+          +--> Authentication & Security
+          +--> Notification Services
+          |
+          v
+          External Providers
+          +--> BaaS
+          +--> KYC
+          +--> SMS / Email / WhatsApp / Push
+          +--> Apple Wallet / Google Wallet
+        </div>
+      </section>
 
-        <footer class="footer container">
-            <p class="muted">© <span id="year"></span> Ethien Salinas</p>
-        </footer>
-    </main>
+      <section>
+        <h2>Product Capabilities</h2>
+        <p>
+          The product moved from concept to a real customer-facing financial experience with a fully digital
+          onboarding flow
+          and core banking-related features.
+        </p>
+        <ul>
+          <li>100% digital account opening flow</li>
+          <li>Onboarding and KYC completed online</li>
+          <li>Biometric registration for login</li>
+          <li>Spanish IBAN account</li>
+          <li>Ability to request a card from the start</li>
+          <li>Integration with Apple Wallet and Google Wallet</li>
+          <li>Security and compliance foundations such as SCA and password policies</li>
+        </ul>
+      </section>
 
-    <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+      <section>
+        <h2>Building the Engineering Organization</h2>
+        <p>
+          One of the most important parts of my work was not just building the platform, but building the
+          function that could
+          sustain and evolve it.
+        </p>
+
+        <div class="two-col">
+          <div class="info-card">
+            <h3>Early evolution</h3>
+            <ul>
+              <li>Started as the only technical role</li>
+              <li>Then added 3 full-stack developers</li>
+              <li>Later incorporated UX/UI and DevOps capabilities</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h3>Current structure</h3>
+            <ul>
+              <li>Architect</li>
+              <li>UX/UI</li>
+              <li>QA</li>
+              <li>Tech leads</li>
+              <li>Full-stack engineers</li>
+              <li>DevOps (external)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Company Growth</h2>
+        <p>
+          The broader company also evolved significantly from the initial five-person setup into a much more
+          complete
+          organization supporting operations, customer service, marketing, and technology.
+        </p>
+        <ul>
+          <li>General management</li>
+          <li>Administration and finance</li>
+          <li>Marketing team with 3 internal people plus external agency support</li>
+          <li>Customer support team of 8 people covering all shifts</li>
+          <li>Technology team of 15 internal people plus specialized outsourced services such as security
+            reviews</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Results</h2>
+        <ul class="result-list">
+          <li>Took the company from idea stage to an operating fintech platform.</li>
+          <li>Launched a product serving thousands of users.</li>
+          <li>Built the internal technology area from scratch.</li>
+          <li>Created the technical foundation to expand beyond the initial account product.</li>
+          <li>Helped support the transition from startup execution to scale-up readiness.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Difficult Decisions</h2>
+        <p>
+          Some of the hardest decisions were organizational rather than purely technical.
+        </p>
+        <p>
+          As the company evolved, it became clear that some team members who had shown promise in the early
+          stage were no longer
+          the right fit for the next phase. Startup dynamics change quickly, and not everyone adapts equally
+          well to increasing
+          complexity, higher expectations, and a more demanding pace.
+        </p>
+        <p>
+          Another important shift was moving away from relying too heavily on junior profiles. At first,
+          hiring junior talent felt
+          like a financially responsible choice. In practice, it often created hidden costs: slower execution,
+          weaker systems thinking,
+          more basic mistakes, and increased risk in a regulated environment.
+        </p>
+        <p>
+          Over time, I adjusted the hiring strategy toward stronger seniority, which improved quality, speed,
+          ownership, and the
+          team’s ability to understand the system as a whole rather than only individual features.
+        </p>
+      </section>
+
+      <section>
+        <h2>Key Learnings</h2>
+        <p>
+          Building a fintech company is a multi-stage journey. Going from idea to product, from product to
+          validation, and from
+          validation to scale each requires different decisions, different team profiles, and different
+          leadership styles.
+        </p>
+        <p>
+          In fintech, security and regulation are often invisible when everything goes well. But they are
+          always there, and they
+          matter deeply. Very few people will mention them proactively, yet everyone will expect them to be
+          fully under control the
+          moment anything goes wrong.
+        </p>
+        <p>
+          I also learned that team design must evolve with the company. What works in a five-person startup
+          will not necessarily
+          work in a growing organization with broader operational, customer, and regulatory responsibilities.
+        </p>
+      </section>
+
+      <section>
+        <h2>CTO Perspective</h2>
+        <div class="quote">
+          <p>
+            Building a fintech platform is not only a technology challenge. It is an organizational
+            challenge, a product challenge,
+            and a sequencing challenge. The real work is making architecture, people, and business
+            priorities evolve together.
+          </p>
+          <footer>— Ethien Salinas</footer>
+        </div>
+      </section>
+
+      <nav class="footer-nav">
+        <a href="../index.html">← Back to home</a>
+        <a href="./product-ownership.html">Next case study →</a>
+      </nav>
+    </article>
+  </main>
 </body>
 
 </html>
