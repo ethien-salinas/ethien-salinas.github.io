@@ -6,387 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Product Ownership Through Execution | Ethien Salinas</title>
   <meta name="description"
-    content="How Ethien Salinas approaches product ownership through execution, translating ambiguity into real fintech products across Creze, Intelligential, and Íkualo." />
-  <style>
-    :root {
-      --bg: #f5f7fa;
-      --surface: #ffffff;
-      --surface-soft: #f8fafc;
-      --text: #0f172a;
-      --muted: #475569;
-      --muted-soft: #64748b;
-      --line: #e2e8f0;
-      --accent: #1d4ed8;
-      --accent-soft: #dbeafe;
-      --hero-a: #0b1220;
-      --hero-b: #172033;
-      --max-width: 940px;
-      --radius: 20px;
-      --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.72;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, var(--hero-a) 0%, var(--hero-b) 100%);
-      color: #ffffff;
-      padding: 26px 0 76px;
-    }
-
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      padding: 8px 0 30px;
-    }
-
-    .brand {
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .back-link {
-      color: #cbd5e1;
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .back-link:hover {
-      color: #ffffff;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      padding: 7px 12px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #dbeafe;
-      background: rgba(255, 255, 255, 0.06);
-      margin-bottom: 18px;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0 0 16px;
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      line-height: 1.04;
-      letter-spacing: -0.04em;
-      max-width: 860px;
-    }
-
-    .subtitle {
-      margin: 0;
-      max-width: 760px;
-      font-size: 1.08rem;
-      color: #cbd5e1;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 26px;
-    }
-
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(255, 255, 255, 0.06);
-      color: #e2e8f0;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    main {
-      margin-top: -40px;
-      padding-bottom: 72px;
-    }
-
-    .paper {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 36px;
-    }
-
-    .summary {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-bottom: 30px;
-    }
-
-    .summary-card {
-      background: var(--surface-soft);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-    }
-
-    .summary-card .label {
-      display: block;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--muted-soft);
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .summary-card .value {
-      font-size: 0.98rem;
-      font-weight: 700;
-      line-height: 1.4;
-    }
-
-    .intro-note {
-      margin: 0 0 34px;
-      padding: 18px 20px;
-      border: 1px solid var(--line);
-      border-left: 4px solid var(--accent);
-      border-radius: 16px;
-      background: var(--surface-soft);
-      color: var(--muted);
-    }
-
-    section {
-      margin-bottom: 34px;
-    }
-
-    section:last-child {
-      margin-bottom: 0;
-    }
-
-    h2 {
-      margin: 0 0 14px;
-      font-size: 1.55rem;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-    }
-
-    h3 {
-      margin: 0 0 10px;
-      font-size: 1.02rem;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-    }
-
-    p {
-      margin: 0 0 16px;
-      color: var(--muted);
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 20px;
-      color: var(--muted);
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .card {
-      background: var(--surface-soft);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 22px;
-    }
-
-    .framework {
-      margin-top: 16px;
-      background: #0f172a;
-      color: #dbeafe;
-      border-radius: 20px;
-      padding: 22px;
-      border: 1px solid #1e293b;
-      overflow-x: auto;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 0.92rem;
-      line-height: 1.75;
-      white-space: pre;
-    }
-
-    .principles {
-      display: grid;
-      gap: 14px;
-    }
-
-    .principle {
-      background: var(--surface-soft);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px 20px;
-    }
-
-    .principle strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-
-    .company-list {
-      display: grid;
-      gap: 16px;
-    }
-
-    .company {
-      background: var(--surface-soft);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 22px;
-    }
-
-    .company-tag {
-      display: inline-block;
-      margin-bottom: 10px;
-      padding: 6px 10px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      border-radius: 999px;
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-
-    .result-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .result-list li {
-      position: relative;
-      padding-left: 24px;
-      margin-bottom: 12px;
-    }
-
-    .result-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--accent);
-      font-weight: 900;
-    }
-
-    .quote {
-      background: #f8fafc;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 24px;
-    }
-
-    .quote p {
-      margin: 0;
-      color: var(--text);
-      font-size: 1.05rem;
-    }
-
-    .quote footer {
-      margin-top: 12px;
-      color: var(--muted-soft);
-      font-size: 0.92rem;
-    }
-
-    .footer-nav {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      margin-top: 36px;
-      padding-top: 24px;
-      border-top: 1px solid var(--line);
-      flex-wrap: wrap;
-    }
-
-    .footer-nav a {
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .footer-nav a:hover {
-      color: var(--text);
-    }
-
-    @media (max-width: 960px) {
-
-      .summary,
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .container {
-        padding: 0 18px;
-      }
-
-      .paper {
-        padding: 24px 20px;
-        border-radius: 22px;
-      }
-
-      .hero {
-        padding: 22px 0 66px;
-      }
-
-      h1 {
-        font-size: 2.35rem;
-      }
-
-      .subtitle {
-        font-size: 1rem;
-      }
-
-      .topbar {
-        padding-bottom: 24px;
-      }
-    }
-  </style>
+    content="How Ethien Salinas approaches product ownership through execution, translating ambiguity into real fintech products across lending, financial SaaS, and digital banking." />
+  <link rel="stylesheet" href="../css/styles.css" />
 </head>
 
 <body>
@@ -397,288 +18,293 @@
         <a class="back-link" href="../index.html">Back to home</a>
       </div>
 
-      <div class="eyebrow">Case Study</div>
-      <h1>Product Ownership Through Execution</h1>
-      <p class="subtitle">
-        How I translate ambiguity into real products by combining technical depth, delivery discipline,
-        and product ownership across fintech and early-stage environments.
-      </p>
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Case Study · Product Leadership</div>
+          <h1>Product ownership through execution.</h1>
+          <p class="lead">
+            My product perspective comes from building real fintech platforms, not from managing roadmaps in isolation.
+          </p>
+          <p class="lead-secondary">
+            I help turn business ideas into real products by combining technical depth, delivery discipline, and product
+            judgment—especially in environments where ambiguity is high and execution matters early.
+          </p>
+        </div>
 
-      <div class="hero-meta">
-        <span>Focus: Product ownership</span>
-        <span>Angle: Execution-driven</span>
-        <span>Context: Fintech & early stage</span>
-        <span>Profile: Product, technology, delivery</span>
+        <aside class="hero-panel">
+          <h2>What this shows</h2>
+          <ul>
+            <li>How I move from abstract ideas to launchable products</li>
+            <li>How technical depth improves product decisions</li>
+            <li>How I work across product, engineering, operations, and compliance</li>
+            <li>Where I have applied this approach in real fintech businesses</li>
+          </ul>
+        </aside>
       </div>
     </div>
   </header>
 
   <main>
     <div class="container">
-      <article class="paper">
-        <div class="summary">
-          <div class="summary-card">
-            <span class="label">Approach</span>
-            <div class="value">Turn abstract ideas into first real versions</div>
+      <section class="section">
+        <h2>What this approach is</h2>
+        <div class="stats">
+          <div class="stat">
+            <span class="label">Positioning</span>
+            <div class="value">Not traditional product management, but product ownership through execution</div>
           </div>
-          <div class="summary-card">
-            <span class="label">Background</span>
-            <div class="value">Technology, fintech, and project execution</div>
+          <div class="stat">
+            <span class="label">Strength</span>
+            <div class="value">Turning ambiguity into first real versions that can launch and evolve</div>
           </div>
-          <div class="summary-card">
-            <span class="label">Experience</span>
-            <div class="value">Creze, Intelligential, and Íkualo</div>
+          <div class="stat">
+            <span class="label">Context</span>
+            <div class="value">Regulated fintech and early-stage environments</div>
           </div>
-          <div class="summary-card">
-            <span class="label">Fit</span>
-            <div class="value">Product Owner, Founding Product Lead, CTO/Product crossover</div>
+          <div class="stat">
+            <span class="label">Advantage</span>
+            <div class="value">Technical depth with business, operational, and delivery awareness</div>
           </div>
         </div>
+      </section>
 
-        <p class="intro-note">
-          I am not a traditional Product Manager. My product perspective comes from years of building and
-          launching
-          technology in startups where product, engineering, operations, and business were deeply intertwined.
-          My strength is turning ambiguity into a first version that can be launched, used, and improved
-          methodically.
+      <section class="section">
+        <h2>How I think about product</h2>
+        <p class="section-intro">
+          For me, product work starts with making an idea real under real-world constraints. Team capability, budget,
+          time-to-market, regulation, operational complexity, and opportunity cost are all part of product design.
         </p>
 
-        <section>
-          <h2>How I Think About Product</h2>
-          <p>
-            For me, building a product means moving from an idea to a working version within the constraints
-            of reality.
-            That includes team capability, budget, time-to-market, regulatory requirements, operational
-            complexity,
-            and opportunity cost.
-          </p>
-          <p>
-            A good first version is not the one with the most features. It is the one that enables the
-            business to start moving.
-            Once a product exists in the real world, feedback becomes more useful than theoretical
-            discussions.
-          </p>
-        </section>
-
-        <section>
-          <h2>What My Technical Background Adds</h2>
-          <p>
-            Because I have spent years building and operating systems, I understand what it actually takes
-            to implement ideas.
-            That changes how I work on product: I do not just define features, I think through architecture,
-            data, operations,
-            support, and future evolution.
-          </p>
-
-          <div class="two-col">
-            <div class="card">
-              <h3>What this enables</h3>
-              <ul>
-                <li>Better alignment with engineering teams</li>
-                <li>Awareness of architectural implications</li>
-                <li>Data models designed to support analytics from the start</li>
-                <li>More realistic prioritization and delivery sequencing</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h3>Why it matters</h3>
-              <ul>
-                <li>Features are not defined in isolation</li>
-                <li>Analytics cannot be an afterthought</li>
-                <li>Operational teams need workable product flows</li>
-                <li>Compliance and traceability shape the product itself</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2>My Product Framework</h2>
-          <p>
-            When working with an ambiguous idea, I typically move through a structured process that turns
-            abstraction
-            into something tangible and reviewable.
-          </p>
-
-          <div class="framework">Idea
-            |
-            v
-            User Flow Definition
-            |
-            v
-            Feature List
-            |
-            v
-            System Requirements
-            |
-            v
-            Data Model & Analytics Considerations
-            |
-            v
-            First Product Version
-            |
-            v
-            Feedback and Iteration</div>
-        </section>
-
-        <section>
-          <h2>How I Operate in Practice</h2>
-          <p>
-            I usually start with user flows because they are easier for stakeholders to understand than
-            internal system logic.
-            Once the flow is clear, I translate it into the features, requirements, and system
-            considerations needed to launch.
-          </p>
-
-          <div class="two-col">
-            <div class="card">
-              <h3>How I structure the work</h3>
-              <ul>
-                <li>Define user flows first</li>
-                <li>Break each step into features and requirements</li>
-                <li>Add system requirements and contextual dependencies</li>
-                <li>Consider data models early, including analytics needs</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h3>How I prioritize and learn</h3>
-              <ul>
-                <li>Prioritize end-user value first</li>
-                <li>Then support internal operational needs</li>
-                <li>Use project management dependency logic where needed</li>
-                <li>Learn from event dashboards and customer support feedback</li>
-              </ul>
-            </div>
-          </div>
-
-          <p>
-            Customer support is especially valuable once a product is live. Their sensitivity to user
-            friction is often one of
-            the most practical feedback sources in the company.
-          </p>
-        </section>
-
-        <section>
-          <h2>Where I Have Applied This Approach</h2>
-
-          <div class="company-list">
-            <div class="company">
-              <div class="company-tag">Creze</div>
-              <h3>Working capital lending platform</h3>
-              <p>
-                At Creze, I participated in defining and evolving the product platform supporting the
-                lending process.
-              </p>
-              <ul>
-                <li>Developed the origination product that captured customer applications</li>
-                <li>Enabled the credit risk team to evaluate and decide on loan approval</li>
-                <li>Integrated with a credit management platform used to operate active loans</li>
-                <li>Built analytics and reporting for investors financing the loans</li>
-                <li>Supported regulatory reporting to official entities</li>
-                <li>Developed a partner platform for loan attribution and compensation</li>
-              </ul>
-            </div>
-
-            <div class="company">
-              <div class="company-tag">Intelligential</div>
-              <h3>Credit management SaaS platform</h3>
-              <p>
-                At Intelligential, product work involved translating lending operations into a platform
-                that could serve multiple financial companies.
-              </p>
-              <ul>
-                <li>Launched the first SaaS version based on real operational knowledge from Creze</li>
-                <li>Designed the platform to support companies like Creze and similar lenders</li>
-                <li>Developed an API-first version for clients that wanted direct integration without
-                  using the interface layer</li>
-                <li>Built reporting and analytics modules for internal control and legal obligations
-                </li>
-              </ul>
-            </div>
-
-            <div class="company">
-              <div class="company-tag">Íkualo</div>
-              <h3>Financial platform for migrants in Europe</h3>
-              <p>
-                At Íkualo, product ownership means balancing user experience, compliance, and financial
-                infrastructure constraints.
-              </p>
-              <ul>
-                <li>Defined the onboarding process for new users</li>
-                <li>Shaped the mobile app for account management, transactions, cards, and wallet
-                  integrations</li>
-                <li>Helped structure the product around daily banking use cases</li>
-                <li>Defined the backoffice used by staff to operate customer accounts in a controlled
-                  and secure environment</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2>Product Principles</h2>
-          <div class="principles">
-            <div class="principle">
-              <strong>Product clarity comes through execution</strong>
-              The first version makes the conversation real and gives stakeholders something tangible to
-              react to.
-            </div>
-
-            <div class="principle">
-              <strong>The first version is a learning tool</strong>
-              Its goal is not completeness. Its goal is to enable movement in the market and informed
-              iteration.
-            </div>
-
-            <div class="principle">
-              <strong>Constraints are part of product design</strong>
-              Budget, regulation, team capacity, and operations are not external factors. They shape the
-              product itself.
-            </div>
-
-            <div class="principle">
-              <strong>Operational realities matter</strong>
-              A product must work for the end user, but also for the teams that support and operate it
-              every day.
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2>Roles This Experience Fits</h2>
-          <ul class="result-list">
-            <li>Product Owner</li>
-            <li>Founding Product Lead</li>
-            <li>Head of Product in execution-heavy environments</li>
-            <li>CTO or technical leadership roles closely involved in product strategy</li>
-          </ul>
-
-          <p>
-            My work typically sits at the intersection of product, technology, and execution, especially in
-            fintech environments
-            where these areas cannot be separated cleanly.
-          </p>
-        </section>
-
-        <section>
-          <h2>Product Perspective</h2>
-          <div class="quote">
+        <div class="grid-3">
+          <article class="card">
+            <div class="tag">First principle</div>
+            <h3>Build for movement</h3>
             <p>
-              I do not see product as the exercise of describing ideal features in abstraction. I see it
-              as the discipline of
-              turning ambiguity into something real, usable, and evolvable under real-world constraints.
+              The goal is not to design the perfect product. The goal is to build something that allows the business to
+              move forward.
             </p>
-            <footer>— Ethien Salinas</footer>
-          </div>
-        </section>
+          </article>
 
-        <nav class="footer-nav">
+          <article class="card">
+            <div class="tag">Execution</div>
+            <h3>Make ideas tangible early</h3>
+            <p>
+              Once a product exists in a real form, feedback improves. Stakeholders react better to something concrete
+              than to long discussions around abstractions.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="tag">Judgment</div>
+            <h3>Design with constraints in mind</h3>
+            <p>
+              Good product decisions balance user value, technical feasibility, operations, compliance, and cost of
+              delay.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>What my technical background adds</h2>
+        <p class="section-intro">
+          My background in software engineering and fintech operations changes how I approach product. I do not just
+          define what should be built. I think through what it will take to build, operate, measure, and evolve it.
+        </p>
+
+        <div class="grid-4">
+          <article class="card">
+            <h3>Better translation</h3>
+            <p>Bridge business goals and technical execution without losing important detail.</p>
+          </article>
+
+          <article class="card">
+            <h3>Stronger foundations</h3>
+            <p>Consider architecture, data models, and traceability earlier in the product lifecycle.</p>
+          </article>
+
+          <article class="card">
+            <h3>More realistic sequencing</h3>
+            <p>Prioritize with a clearer view of dependencies, delivery risk, and operational readiness.</p>
+          </article>
+
+          <article class="card">
+            <h3>Broader decisions</h3>
+            <p>Think beyond features to include analytics, support, staff tooling, and compliance impact.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>My product framework</h2>
+        <p class="section-intro">
+          When an idea is still ambiguous, I usually work through a structured path that turns it into something
+          launchable and reviewable.
+        </p>
+
+        <div class="framework">Idea
+          ↓
+          User flows
+          ↓
+          Features
+          ↓
+          System requirements
+          ↓
+          Data models
+          ↓
+          First version
+          ↓
+          Feedback and iteration</div>
+      </section>
+
+      <section class="section">
+        <h2>How I operate in practice</h2>
+        <p class="section-intro">
+          My operating style is execution-led. I use structure to reduce ambiguity, but I keep the goal practical: get
+          to a version that can launch, learn, and improve.
+        </p>
+
+        <div class="grid-2">
+          <article class="card">
+            <div class="tag">Structuring the work</div>
+            <h3>From flows to requirements</h3>
+            <ul>
+              <li>Start with user flows because they are easier for stakeholders to align around</li>
+              <li>Break each step into features and user-facing requirements</li>
+              <li>Add system requirements, dependencies, and contextual constraints</li>
+              <li>Consider data models and analytics needs early, not after release</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="tag">Prioritizing and learning</div>
+            <h3>From value to iteration</h3>
+            <ul>
+              <li>Prioritize end-user value first</li>
+              <li>Then make sure internal teams can operate and support the product properly</li>
+              <li>Use project management logic to handle start-to-start, finish-to-start, and finish-to-finish
+                dependencies</li>
+              <li>Learn from event dashboards and close contact with customer support once the product is live</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Where I have applied this approach</h2>
+        <p class="section-intro">
+          This approach was shaped in real fintech businesses, where product, technology, operations, and regulation are
+          tightly connected.
+        </p>
+
+        <div class="company-list">
+          <article class="company">
+            <div class="tag">Creze</div>
+            <h3>Working capital lending platform</h3>
+            <p>
+              At Creze, I helped define and evolve the product platform supporting the lending process from origination
+              through operations.
+            </p>
+            <ul>
+              <li>Built the origination product capturing customer applications and enabling credit risk evaluation</li>
+              <li>Integrated with the credit management platform used to operate active loans</li>
+              <li>Developed analytics and reporting used by investors financing the loans</li>
+              <li>Supported regulatory reporting requirements for official entities</li>
+              <li>Built a partner platform for attribution and compensation of broker-driven origination</li>
+            </ul>
+          </article>
+
+          <article class="company">
+            <div class="tag">Intelligential</div>
+            <h3>Credit management SaaS</h3>
+            <p>
+              At Intelligential, I helped turn real lending operations into a reusable product for multiple financial
+              companies.
+            </p>
+            <ul>
+              <li>Launched the first version of the SaaS platform based on proven lending workflows</li>
+              <li>Designed the product to support companies like Creze and similar lenders</li>
+              <li>Developed an API-first version for clients wanting direct integration without using the interface
+                layer</li>
+              <li>Built reporting and analytics modules supporting internal control and legal obligations</li>
+            </ul>
+          </article>
+
+          <article class="company">
+            <div class="tag">Íkualo</div>
+            <h3>Financial platform for migrants in Europe</h3>
+            <p>
+              At Íkualo, product work meant balancing user experience, regulated flows, and fintech infrastructure
+              constraints.
+            </p>
+            <ul>
+              <li>Defined the onboarding process for new users</li>
+              <li>Shaped the mobile app for account management, movements, cards, and wallet integrations</li>
+              <li>Helped structure the product around daily financial use cases</li>
+              <li>Defined the backoffice used by staff to operate customer accounts in a controlled and secure
+                environment</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Product principles</h2>
+        <div class="principles">
+          <div class="principle">
+            <strong>Product clarity comes through execution</strong>
+            Ideas become sharper once there is something real to review, test, and improve.
+          </div>
+
+          <div class="principle">
+            <strong>The first version is a business tool</strong>
+            Its purpose is not completeness. Its purpose is to create momentum, open a market path, and produce better
+            feedback.
+          </div>
+
+          <div class="principle">
+            <strong>Constraints shape the product</strong>
+            Budget, regulation, team capability, and operational capacity are part of the design, not separate from it.
+          </div>
+
+          <div class="principle">
+            <strong>Operational reality matters</strong>
+            A product has to work for the user, but also for the teams that support, monitor, and operate it every day.
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Where this experience fits best</h2>
+        <p class="section-intro">
+          This experience is especially relevant in roles where product decisions need to be grounded in execution,
+          technology, and business reality.
+        </p>
+
+        <div class="fit-list">
+          <div class="fit-item">Product Owner</div>
+          <div class="fit-item">Founding Product Lead</div>
+          <div class="fit-item">Head of Product in execution-heavy environments</div>
+          <div class="fit-item">CTO or technical leadership roles closely tied to product strategy</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Closing perspective</h2>
+        <div class="quote">
+          <p>
+            I do not see product as the exercise of describing ideal features in abstraction. I see it as the discipline
+            of turning ambiguity into something real, usable, and evolvable under business, operational, and technical
+            constraints.
+          </p>
+          <footer>— Ethien Salinas</footer>
+        </div>
+
+        <div class="footer-nav">
           <a href="../index.html">Back to home</a>
-          <a href="./scaling-fintech.html">Previous case study</a>
-        </nav>
-      </article>
+          <a href="./scaling-fintech.html">Read the fintech platform case study</a>
+        </div>
+      </section>
     </div>
   </main>
 </body>
