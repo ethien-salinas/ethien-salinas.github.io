@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building a Lending Platform from Scratch | Ethien Salinas</title>
+  <meta name="description"
+    content="How Ethien Salinas helped build Creze from early pilot loans managed in spreadsheets into a technology-driven lending fintech platform in Mexico." />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">Ethien Salinas</div>
+        <a class="back-link" href="../index.html">Back to home</a>
+      </div>
+
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Fintech Case Study</div>
+          <h1>Building a lending platform from scratch.</h1>
+          <p class="lead">
+            How I helped take Creze from early pilot loans managed through spreadsheets to a technology-driven lending
+            platform for SMEs in Mexico.
+          </p>
+          <p class="lead-secondary">
+            This case is about building the technology backbone of an early fintech: loan origination, risk workflows,
+            operational systems, team growth, and platform evolution.
+          </p>
+        </div>
+
+        <aside class="hero-panel">
+          <h2>What this covers</h2>
+          <ul>
+            <li>Moving from manual lending operations to a production fintech platform</li>
+            <li>Building a credit origination system under early-stage startup constraints</li>
+            <li>Scaling engineering from 5 to 21 people</li>
+            <li>Turning lending operations into structured technology and data flows</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="section">
+        <h2>Context at the start</h2>
+        <div class="stats">
+          <div class="stat">
+            <span class="label">Stage</span>
+            <div class="value">Early-stage fintech with pilot loans already tested</div>
+          </div>
+          <div class="stat">
+            <span class="label">When I joined</span>
+            <div class="value">November 2016</div>
+          </div>
+          <div class="stat">
+            <span class="label">Team</span>
+            <div class="value">65 people in the company, 5 in technology</div>
+          </div>
+          <div class="stat">
+            <span class="label">Situation</span>
+            <div class="value">Around 10 proof-of-concept loans managed operationally through Excel</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Context</h2>
+        <p class="section-intro">
+          Creze was an early fintech startup focused on providing working capital loans to small and medium-sized
+          businesses in Mexico.
+        </p>
+
+        <div class="grid-2">
+          <article class="card">
+            <div class="tag">Business model</div>
+            <h3>Working capital lending</h3>
+            <p>
+              Creze offered loans designed to help existing businesses finance day-to-day operations, rather than
+              startup funding or long-term expansion capital.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="tag">Market context</div>
+            <h3>Early fintech in Mexico</h3>
+            <p>
+              The company was founded by Gonzalo Cegarra after seeing the lending model up close in the United States
+              through OnDeck and identifying the opportunity to adapt it to Mexico while the local fintech ecosystem was
+              still emerging.
+            </p>
+          </article>
+        </div>
+
+        <p class="section-intro" style="margin-top: 20px;">
+          Loan sizes started at around <strong>50k MXN</strong> and, by the time I left, had grown to as much as
+          <strong>1M MXN</strong> with collateral guarantees such as founders’ real estate assets.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>The challenge</h2>
+        <p class="section-intro">
+          Creze had validated the lending thesis with a small number of pilot loans, but the operational process was
+          still largely manual. There was no production-grade platform capable of supporting scale, operational
+          discipline, or structured risk workflows.
+        </p>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="tag">Operations</div>
+            <h3>Manual workflows</h3>
+            <p>
+              Pilot loans were being managed through spreadsheets, which was not sustainable for a digital lending
+              business.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="tag">Product</div>
+            <h3>No production platform</h3>
+            <p>
+              The lending process required a real digital flow for registration, document management, risk review,
+              approval and operations.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="tag">Data</div>
+            <h3>Messy financial inputs</h3>
+            <p>
+              Bank statements were inconsistent, OCR quality was weak, and open banking did not exist yet, making
+              financial preprocessing and interpretation significantly harder.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>My role</h2>
+        <p class="section-intro">
+          I joined Creze in November 2016 after working at Buró de Crédito. My initial role was to take leadership of
+          the engineering team, bring the first real platform into production, and evolve it as the company grew.
+        </p>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>Platform delivery</h3>
+            <p>
+              Led the effort to launch the first production version of the lending platform approximately four months
+              after joining.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Team leadership</h3>
+            <p>
+              Structured and expanded the engineering organization as product and operational complexity increased.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Business translation</h3>
+            <p>
+              Worked to understand lending operations end to end and turn those workflows into practical software
+              systems.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>The product</h2>
+        <p class="section-intro">
+          The platform supported the full credit lifecycle, starting with digital loan origination and extending into
+          operational and analytical workflows.
+        </p>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="tag">Origination</div>
+            <h3>Customer intake and risk review</h3>
+            <ul>
+              <li>Applicant registration and onboarding</li>
+              <li>Document upload</li>
+              <li>Credit bureau consultation</li>
+              <li>Financial data review</li>
+              <li>Risk evaluation</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="tag">Credit lifecycle</div>
+            <h3>Approval to collection</h3>
+            <ul>
+              <li>Loan approval</li>
+              <li>Loan disbursement</li>
+              <li>Loan collection</li>
+              <li>Customer classification</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="tag">Decision support</div>
+            <h3>Analytics and reporting</h3>
+            <ul>
+              <li>Operational analytics</li>
+              <li>Financial reporting</li>
+              <li>Compliance and regulatory reporting</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Platform & architecture</h2>
+        <p class="section-intro">
+          The initial stack was already in place when I joined, and the first priority was to launch. Once the platform
+          was operating in production, I evolved the system gradually to improve performance, modularity, quality and
+          security.
+        </p>
+
+        <div class="grid-2">
+          <article class="card">
+            <div class="tag">Core stack</div>
+            <h3>Technology base</h3>
+            <ul>
+              <li>React and Vue for frontend applications</li>
+              <li>Node.js for backend services</li>
+              <li>PostgreSQL as core database</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="tag">Infrastructure</div>
+            <h3>Cloud foundation</h3>
+            <ul>
+              <li>AWS as the cloud platform</li>
+              <li>EC2 for compute</li>
+              <li>S3 for storage</li>
+              <li>Aurora RDS for enterprise-grade data workloads</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="architecture">Applicant onboarding
+          |
+          v
+          Document upload & validation
+          |
+          +--> Credit bureau consultation
+          +--> AML provider checks
+          +--> Financial document review
+          |
+          v
+          Risk evaluation workflow
+          |
+          v
+          Loan approval & disbursement
+          |
+          v
+          Collection, classification & analytics
+          |
+          v
+          External credit management tool</div>
+      </section>
+
+      <section class="section">
+        <h2>Strategic decisions</h2>
+        <div class="principles">
+          <div class="principle">
+            <strong>Ship first, optimize next</strong>
+            The initial stack was inherited and I kept it in place to get the first production version into the market
+            quickly. Once the platform was operating, I improved components progressively where it made sense.
+          </div>
+
+          <div class="principle">
+            <strong>Evolve the team structure as complexity grows</strong>
+            The team moved from generalist full-stack developers toward more specialized roles, especially around
+            backend business logic and, later, data and reporting needs.
+          </div>
+
+          <div class="principle">
+            <strong>Build a stronger system, not just more features</strong>
+            As the company grew, the focus expanded beyond feature delivery to quality, modularity, security and
+            operational robustness.
+          </div>
+
+          <div class="principle">
+            <strong>Treat hiring as a strategic technology decision</strong>
+            Every role added to the team was a direct leadership choice. I took responsibility not only for hiring, but
+            also for adjusting the organization when people were not evolving at the pace the company required.
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Organization & team growth</h2>
+        <p class="section-intro">
+          One of the most important parts of the work was evolving the engineering team from a small startup group into
+          a more structured organization able to support a growing fintech.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <span class="label">Tech team at start</span>
+            <div class="value">5 people</div>
+          </div>
+          <div class="stat">
+            <span class="label">Tech team at exit</span>
+            <div class="value">21 people</div>
+          </div>
+          <div class="stat">
+            <span class="label">Company size</span>
+            <div class="value">65 people across marketing, sales, operations, collecting, risk and control desk</div>
+          </div>
+          <div class="stat">
+            <span class="label">Team evolution</span>
+            <div class="value">From full-stack generalists to stronger backend and data specialization</div>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top: 16px;">
+          <article class="card">
+            <div class="tag">Backend focus</div>
+            <h3>Business logic and operational systems</h3>
+            <p>
+              As the lending platform matured, backend work became increasingly important because that is where the core
+              lending logic and operational decision-making lived.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="tag">Data capability</div>
+            <h3>First analytics and reporting layer</h3>
+            <p>
+              Later in the journey, the team incorporated data-focused capabilities to generate the company’s first
+              financial, compliance and regulatory reporting outputs.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Impact on the business</h2>
+        <p class="section-intro">
+          Technology became essential to Creze’s operating model. Because the company worked as a fully digital lender,
+          the platform was not a support function—it was the business.
+        </p>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="tag">Scale</div>
+            <h3>Originations growth</h3>
+            <p>
+              The company grew from early proof-of-concept loans to approximately <strong>500k MXN in monthly loan
+                originations</strong> by the time I left.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="tag">Efficiency</div>
+            <h3>Operational support for risk</h3>
+            <p>
+              The platform helped preprocess financial information such as bank statements, making risk analysis more
+              efficient despite inconsistent source data.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="tag">Visibility</div>
+            <h3>Reporting and decision support</h3>
+            <p>
+              Technology enabled operational, strategic, financial and regulatory reporting needed to run the lending
+              business day to day.
+            </p>
+          </article>
+        </div>
+
+        <div class="grid-2" style="margin-top: 16px;">
+          <article class="card">
+            <div class="tag">Marketing</div>
+            <h3>Better digital acquisition</h3>
+            <p>
+              As I understood the business more deeply, I also contributed to digital marketing thinking and helped
+              support more effective acquisition strategies.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="tag">Operating model</div>
+            <h3>From spreadsheets to fintech platform</h3>
+            <p>
+              The company moved from managing a handful of pilot loans manually to operating through a real lending
+              platform capable of supporting scale.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Key lessons</h2>
+        <div class="principles">
+          <div class="principle">
+            <strong>This was my first true exposure to startup execution</strong>
+            Creze marked my transition from technical leadership in larger organizations to building technology in an
+            early-stage company where product, operations and business were tightly linked.
+          </div>
+
+          <div class="principle">
+            <strong>Building fintech means understanding operations end to end</strong>
+            I stopped seeing technology as feature delivery only and began understanding lending as a complete operating
+            system: risk, data, disbursement, collection and reporting.
+          </div>
+
+          <div class="principle">
+            <strong>Platform thinking starts with operational reality</strong>
+            The deep exposure to how lending actually worked became the foundation for Intelligential, where those
+            learnings later evolved into a fintech SaaS platform.
+          </div>
+
+          <div class="principle">
+            <strong>My own leadership had to evolve</strong>
+            One of the biggest challenges was broadening my perspective beyond programming and learning to think in
+            terms of complete systems, organizational design and business impact.
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Closing perspective</h2>
+        <div class="quote">
+          <p>
+            Creze was the point where my career moved from technical delivery to full fintech platform building. It
+            taught me how lending businesses really operate, how technology becomes the backbone of the company, and how
+            startup execution changes the role of a technology leader completely.
+          </p>
+          <footer>— Ethien Salinas</footer>
+        </div>
+
+        <div class="footer-nav">
+          <a href="../index.html">Back to home</a>
+          <a href="./product-ownership.html">Read the product leadership case study</a>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+
+</html>
